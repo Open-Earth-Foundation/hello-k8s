@@ -26,3 +26,41 @@ aws ecr-public get-login-password --region us-east-1 | docker login --username A
 ```
 docker push public.ecr.aws/openearthfoundation/helloworld:latest
 ```
+
+## Run the app on Kubernetes locally
+
+The `helloworld.yaml` file defines three resources (they're separated by "---")
+
+- A "Deployment" that runs and manages the "Pod" containers for the helloworld app
+- A "Service" that provides a network interface to the Pods; it's kind of like an internal load balancer
+- An "Ingress" that provides external access to the Service interface
+
+Run this command to create a namespace:
+
+```
+kubectl create namespace helloworld
+```
+
+Then, run this command:
+
+```
+kubectl -n helloworld apply -f ./helloworld.yaml
+```
+
+This will create all the resources.
+
+You should be able to view the helloworld app at http://localhost/
+
+You can see all the stuff by running:
+
+```
+kubectl -n helloworld get all
+```
+
+Run this command:
+
+```
+kubectl delete -f ./helloworld.yaml
+```
+
+To get rid of the app.
