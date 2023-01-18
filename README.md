@@ -64,3 +64,6 @@ kubectl delete -f ./helloworld.yaml
 ```
 
 To get rid of the app.
+## Kubernetes Commands
+### Creating a deployement
+``` kubectl apply -f nginx-deployment.yml ```
