@@ -60,10 +60,7 @@ kubectl -n helloworld get all
 Run this command:
 
 ```
-kubectl delete -f ./helloworld.yaml
+kubectl delete -f ./helloworld-config.yaml
 ```
 
 To get rid of the app.
-## Kubernetes Commands
-### Creating a deployement
-``` kubectl apply -f nginx-deployment.yml ```
