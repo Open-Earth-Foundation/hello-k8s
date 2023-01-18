@@ -64,3 +64,27 @@ kubectl delete -f ./helloworld-config.yaml
 ```
 
 To get rid of the app.
+
+# Map a hostname in the openearth.dev domain to an Ingress on AWS
+
+The AWS command line lets you add domain names, but it's wrapped in a weird JSON format.
+
+There's a script in this directory that wraps up that command, so you can call the script for most uses.
+
+```
+kubectl get ingress name-of-ingress
+```
+
+...should show the public IP address of the ingress created. Then this will set the hostname:
+
+```
+./set-dns.sh <hostname> <ingress IP address>
+```
+
+If you need to back it out, you can call the similar deletion script:
+
+```
+./delete-dns.sh <hostname> <ingress IP address>
+```
+
+Note that you have to include the IP address in the deletion command, too.
