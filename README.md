@@ -51,13 +51,21 @@ This will create all the resources.
 
 You should be able to view the helloworld app at http://localhost/
 
-You can see all the stuff by running:
+You can see most of the stuff by running:
 
 ```
 kubectl -n helloworld get all
 ```
 
-Run this command:
+You have to run this to see the ingress:
+
+```
+kubectl -n helloworld get ingresses
+```
+
+:shrug:
+
+Run this command to clean up:
 
 ```
 kubectl -n helloworld delete -f ./helloworld-config.yaml
