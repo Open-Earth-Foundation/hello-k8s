@@ -44,7 +44,7 @@ kubectl create namespace helloworld
 Then, run this command:
 
 ```
-kubectl -n helloworld apply -f ./helloworld.yaml
+kubectl -n helloworld apply -f ./helloworld-config.yaml
 ```
 
 This will create all the resources.
@@ -60,7 +60,14 @@ kubectl -n helloworld get all
 Run this command:
 
 ```
-kubectl delete -f ./helloworld-config.yaml
+kubectl -n helloworld delete -f ./helloworld-config.yaml
+```
+
+Or this (will wipe the whole namespace!). You need to delete the ingress separately because... reasons?
+
+```
+kubectl -n helloworld delete all --all
+kubectl -n helloworld delete ingress helloworld-ingress
 ```
 
 To get rid of the app.
