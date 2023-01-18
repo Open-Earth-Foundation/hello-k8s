@@ -81,6 +81,8 @@ kubectl get ingress name-of-ingress
 ./set-dns.sh <hostname> <ingress IP address>
 ```
 
+Note: just the hostname ("hello"), not the fully-qualified domain name ("hello.openearth.dev").
+
 If you need to back it out, you can call the similar deletion script:
 
 ```
