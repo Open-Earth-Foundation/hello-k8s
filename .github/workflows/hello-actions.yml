@@ -11,7 +11,6 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-    - uses: 
     - name: Pushing service to ECR
       run: |
         VERSION=`1.0`
@@ -27,7 +26,7 @@ jobs:
       EKS_DEV_NAME: ${{ secrets.EKS_DEV_NAME }}    
     steps:
     - uses: actions/checkout@v2.3.4
-    - name: Creating kubeconfig file  
+      name: Creating kubeconfig file  
       run: aws eks update-kubeconfig --name ${{secrets.EKS_DEV_NAME}} --region us-east-1
 
     - name: Testing connection to EKS
