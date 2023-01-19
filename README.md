@@ -29,6 +29,12 @@ docker push public.ecr.aws/openearthfoundation/helloworld:latest
 
 ## Run the app on Kubernetes locally
 
+You need to have an Ingress controller running on your local Docker Desktop in order for this to work! Run this command to install it.
+
+```
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.5.1/deploy/static/provider/cloud/deploy.yaml
+```
+
 The `helloworld.yml` file defines three resources (they're separated by "---")
 
 - A "Deployment" that runs and manages the "Pod" containers for the helloworld app
