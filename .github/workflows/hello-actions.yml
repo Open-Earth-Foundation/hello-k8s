@@ -18,7 +18,7 @@ jobs:
         docker tag helloworld:$VERSION public.ecr.aws/openearthfoundation/helloworld:$VERSION
         docker push public.ecr.aws/openearthfoundation/helloworld:$VERSION
   deployToEKS:
-    needs: pushtoECR
+    needs: pushToECR
     runs-on: ubuntu-latest
     env:
       AWS_ACCESS_KEY_ID_EKS_DEV_USER: ${{ secrets.AWS_ACCESS_KEY_ID_EKS_DEV_USER }}
