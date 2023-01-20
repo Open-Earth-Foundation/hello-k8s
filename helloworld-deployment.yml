@@ -15,7 +15,8 @@ spec:
     spec:
       containers:
       - name: helloworld
-        image: public.ecr.aws/openearthfoundation/helloworld
+        image: public.ecr.aws/openearthfoundation/helloworld:latest
+        imagePullPolicy: Always
         resources:
           limits:
             memory: "128Mi"
