@@ -46,4 +46,4 @@ jobs:
       run: |
         kubectl apply -f helloworld-deployment.yml -n default
         kubectl apply -f helloworld-service.yml -n default
-        kubectl rollout status deployment helloworld-deployment -n default --timeout=90s
+        kubectl rollout restart deployment helloworld-deployment -n default
