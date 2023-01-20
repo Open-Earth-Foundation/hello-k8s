@@ -42,7 +42,7 @@ To confirm the connection, run `kubectl -n default get all` and verify you are i
 
 Now you are ready to push to the cluster. Make sure you have your EKS configuration setup, for reference, in this Github these files are located at hello-k8s/helloworld-\*.yml. Make sure in the configuration you point the container image to the image you just uploaded to ECR above.
 
-_Important note! An EKS file doesn't have an ingress section, it only has the deployment and service. Compare this to the local kubernetes process which requires the configuration for the ingresses as that is necessary for local hosting._
+_Important note! An EKS push doesn't need the ingress configuration as [it should be setup with an AWS ALB ingress controller](https://aws.amazon.com/blogs/opensource/kubernetes-ingress-aws-alb-ingress-controller/), it only needs the deployment and service. Compare this to the local kubernetes process which requires the configuration for the ingresses as that is necessary for local hosting._
 
 Once the connection has been configured and the EKS file definition is setup, you apply the configuration using the following command `kubectl apply -f ${ROUTE_TO_COINFIGURATION_FILE} -n default`.
 
