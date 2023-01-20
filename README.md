@@ -74,7 +74,7 @@ kubectl -n helloworld get ingresses
 Run this command to clean up:
 
 ```
-for f in ./helloworld-*.yml; do kubectl -n helloworld apply -f $f; done
+for f in ./helloworld-*.yml; do kubectl -n helloworld delete -f $f; done
 ```
 
 Or this (will wipe the whole namespace!). You need to delete the ingress separately because... reasons?
