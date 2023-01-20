@@ -14,9 +14,11 @@ jobs:
       env:
         AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
         AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+    - name: Pushing service to ECR
+      env:
         VERSION: ${{ github.sha }}
         IMAGE: public.ecr.aws/openearthfoundation/helloworld
-    - name: Pushing service to ECR
       run: |
         docker build -t $IMAGE:$VERSION helloworld
         docker tag $IMAGE:$VERSION $IMAGE:latest
