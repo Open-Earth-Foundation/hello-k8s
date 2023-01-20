@@ -35,7 +35,7 @@ You need to have an Ingress controller running on your local Docker Desktop in o
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v1.5.1/deploy/static/provider/cloud/deploy.yaml
 ```
 
-The `helloworld.yml` file defines three resources (they're separated by "---")
+The `helloworld-*.yml` files defines three resources
 
 - A "Deployment" that runs and manages the "Pod" containers for the helloworld app
 - A "Service" that provides a network interface to the Pods; it's kind of like an internal load balancer
@@ -50,7 +50,7 @@ kubectl create namespace helloworld
 Then, run this command:
 
 ```
-kubectl -n helloworld apply -f ./helloworld-config.yml
+for f in ./helloworld-*.yml; do kubectl -n helloworld apply -f $f; done
 ```
 
 This will create all the resources.
@@ -74,7 +74,7 @@ kubectl -n helloworld get ingresses
 Run this command to clean up:
 
 ```
-kubectl -n helloworld delete -f ./helloworld-config.yml
+for f in ./helloworld-*.yml; do kubectl -n helloworld apply -f $f; done
 ```
 
 Or this (will wipe the whole namespace!). You need to delete the ingress separately because... reasons?
