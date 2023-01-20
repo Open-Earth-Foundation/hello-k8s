@@ -16,6 +16,7 @@ jobs:
         IMAGE: public.ecr.aws/openearthfoundation/helloworld
     - name: Pushing service to ECR
       run: |
+        echo "Building Docker image $IMAGE version $VERSION"
         docker build -t $IMAGE:$VERSION helloworld
         docker tag $IMAGE:$VERSION $IMAGE:latest
         docker push $IMAGE:$VERSION
